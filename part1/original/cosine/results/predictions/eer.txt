@@ -1,0 +1,3 @@
+On train EER = 2.46
+On dev EER = 10.52
+On eval EER = 14.76

@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# BCS intervention on Cosine-ivector system
+workDir=$PWD
+
+operation='remove'
+interveneOn='genuine'
+samplestoRemove=100  # 100 ms samples
+
+cmvn=1
+normalise=1     # Whether to post normalise ivectors or not
+trainOn='T';
+
+echo 'Make sure to create soft links to DATASET !!'
+codeBase=$workDir/../../../../../../codebase/
+audioBasePath=$workDir/../../../../../../../datasets/ASVSpoof2017_v2.0/   #Dataset folder must be created with symbolic link
+annotationBase=$workDir/../../../../../../data_annotations
+sampleBCSFile='abc.txt'  #will not be use though, placeholder
+
+cosinePath=$workDir/../../../../../original/cosine/model/
+tvmPath=$cosinePath/tvm100.mat
+ubmPath=$cosinePath/ubm64.mat  
+matlabDir=$codeBase/matlab/mycodes/
+
+predictionFolder=$workDir/../results/predictions/
+newivectorPath=$PWD/../intervened_ivectors/
+
+cd $matlabDir
+
+for subset in 'eval' 'dev' 'train'
+do
+  audioFolder=$audioBasePath/ASVspoof2017_V2_$subset/
+  protocolFile=$annotationBase/$subset/v2/detailed_annotations/bcs_start_file_last_columns_removed.txt  #This is same as 'bcs_start_file.txt' but last column removed for script compatibility
+
+  matlab -nodesktop -nosplash -nodisplay -r "try, gmm_intervention_BCS_ivectorExtraction('$operation','$newivectorPath','$protocolFile','$audioFolder','$ubmPath','$tvmPath','$interveneOn','$cmvn','$subset','$sampleBCSFile','$samplestoRemove'); end; quit"
+
+done
+
+# Now train and test cosine distance classifier
+# We pass both original i-vectors path and new ivectors path to compute cosine distance metric and save the scores.
+matlab -nodesktop -nosplash -nodisplay -r "try, train_test_cosine_ivector_intervention('$predictionFolder','$cosinePath','$newivectorPath', '$normalise'); end; quit"
+
+

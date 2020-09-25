@@ -1,0 +1,39 @@
+---------------------
+Threshold : 0.5000
+TP : 1339
+FN : 168
+TN : 1507
+FP : 0
+Precision : 1.000
+Recall : 0.889
+F-measure: 0.941
+Accuracy: 0.944
+FAR (FPR): 0.0000
+FRR (FNR): 0.1115
+---------------------
+---------------------
+Threshold : 0.6663
+TP : 369
+FN : 391
+TN : 876
+FP : 74
+Precision : 0.833
+Recall : 0.486
+F-measure: 0.613
+Accuracy: 0.728
+FAR (FPR): 0.0779
+FRR (FNR): 0.5145
+---------------------
+---------------------
+Threshold : 0.7467
+TP : 653
+FN : 645
+TN : 10722
+FP : 1286
+Precision : 0.337
+Recall : 0.503
+F-measure: 0.403
+Accuracy: 0.855
+FAR (FPR): 0.1071
+FRR (FNR): 0.4969
+---------------------

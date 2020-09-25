@@ -1,0 +1,13 @@
+T_1000172.wav genuine M0006 S07 - - - * 0.308
+T_1000546.wav genuine M0008 S07 - - - * 0.638
+T_1000600.wav genuine M0008 S10 - - - * 0.184
+T_1000602.wav genuine M0008 S01 - - - * 0.527
+T_1000620.wav genuine M0006 S04 - - - * 0.156
+T_1000827.wav genuine M0007 S03 - - - * 0.240
+T_1001012.wav genuine M0006 S07 - - - * 0.277
+T_1001014.wav genuine M0006 S06 - - - * 0.092
+T_1001065.wav genuine M0008 S10 - - - * 0.364
+T_1001068.wav genuine M0008 S08 - - - * 0.163
+T_1001131.wav genuine M0006 S09 - - - * 0.010
+T_1001363.wav genuine M0006 S09 - - - * 0.551
+T_1001367.wav genuine M0006 S05 - - - * 0.042
